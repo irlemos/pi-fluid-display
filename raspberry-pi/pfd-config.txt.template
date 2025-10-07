@@ -1,0 +1,13 @@
+# ==========================================================
+# Arquivo de Configuração para o PiFluidDisplay
+# Renomeie este arquivo para 'pfd-config.txt' e coloque na
+# pasta /boot/pi-fluid-display/ do seu cartão SD.
+# ==========================================================
+
+# O nome amigável que será exibido na tela de espera.
+# Use aspas se o nome contiver espaços.
+DISPLAY_NAME="Tela Sem Fio 1"
+
+# O nome do dispositivo na rede (hostname).
+# Use apenas letras minúsculas, números e hífens.
+HOSTNAME="pi-fluid-display-01"

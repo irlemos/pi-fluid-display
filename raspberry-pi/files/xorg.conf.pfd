@@ -1,0 +1,13 @@
+# Arquivo de configuração do Xorg para o PiFluidDisplay
+# Força o uso do driver de vídeo Framebuffer (fbdev) para máxima compatibilidade.
+
+Section "Device"
+    Identifier  "PiFramebuffer"
+    Driver      "fbdev"
+    Option      "fbdev" "/dev/fb0"
+EndSection
+
+Section "Screen"
+    Identifier  "DefaultScreen"
+    Device      "PiFramebuffer"
+EndSection

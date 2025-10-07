@@ -1,0 +1,20 @@
+# Serviço Systemd para o PiFluidDisplay
+# A função deste serviço é iniciar todo o ambiente gráfico uma única vez no boot.
+
+[Unit]
+Description=PiFluidDisplay Idle Information Screen
+After=systemd-user-sessions.service plymouth-quit.service
+Conflicts=getty@tty1.service
+
+[Service]
+User=pi
+Group=tty
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=tty
+# Comando principal: usa xinit para iniciar o servidor X com a config fbdev, e dentro dele, o script pfd-idle.sh
+ExecStart=/usr/bin/xinit /home/pi/pi-fluid-display/pfd-idle.sh -- /usr/bin/X :0 -config /etc/X11/xorg.conf.pfd -nolisten tcp vt1
+Restart=always
+
+[Install]
+WantedBy=graphical.target

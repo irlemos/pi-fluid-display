@@ -1,0 +1,13 @@
+# Serviço Systemd que executa o script de verificação de reinstalação a cada boot.
+
+[Unit]
+Description=PiFluidDisplay Reinstall Trigger Check
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/pfd-reinstall-trigger.sh
+
+[Install]
+WantedBy=sysinit.target
